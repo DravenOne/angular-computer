@@ -1,0 +1,21 @@
+<div class="HeroList">
+    <button (click)="getHeroes()" class="btn btn-primary">Observable</button>
+    <button (click)="getHero()" class="btn btn-primary">Refresh</button>
+    <div class="herolist">
+        <a *ngFor='let hero of Heroes | async' (click)='selectHero(hero)'>{{hero.name}}</a>
+    </div>
+    <div class="herolist">
+        <a *ngFor='let heros of testHero' (click)='selectHero(heros)'>{{heros.name}}</a>
+    </div>
+    {{heroes}}
+</div>
+<div [hidden]='isSelect' class="Heroform">
+    <h2>Hero Detail</h2>
+    <h3><i>A FormGroup with multiple FormControls</i></h3>
+    <app-form-detail [hero]='selHero'></app-form-detail>
+    <!-- <p>Name value: {{ heroForm.get('name').value }}</p> -->
+</div>
+<div [hidden]='messageService.message.length==0' style='float:left'>
+    <p *ngFor='let msg of messageService.message'>{{msg}}</p>
+    <button  class="btn btn-primary" (click)='clears()'>clear</button>
+</div>

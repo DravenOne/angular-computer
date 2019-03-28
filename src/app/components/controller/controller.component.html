@@ -1,0 +1,25 @@
+<div class="controller">
+  <div class="numbers">
+      <button (click)='getNumber(1)'>1</button>
+      <button  (click)='getNumber(2)'>2</button>
+      <button  (click)='getNumber(3)'>3</button>
+      <button  (click)='getNumber(4)'>4</button>
+      <button  (click)='getNumber(5)'>5</button>
+      <button  (click)='getNumber(6)'>6</button>
+      <button (click)='getNumber(7)'>7</button>
+      <button (click)='getNumber(8)'>8</button>
+      <button (click)='getNumber(9)'>9</button>
+      <button (click)='getNumber(0)'>0</button>
+      <button (click)='getDelete()'>C</button>
+      <button (click)='getBack()'>Del</button>
+  </div>
+  <div class="operator">
+      <button (click)='getNumber("+")'>+</button>
+      <button (click)='getNumber("-")'>-</button>
+      <button (click)='getNumber("*")'>*</button>
+      <button (click)='getNumber("÷")'>÷</button>
+      <div class='Result'>
+          <button (click)='getSumming()'>=</button>
+      </div>
+  </div>
+</div>

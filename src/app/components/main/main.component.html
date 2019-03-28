@@ -1,0 +1,60 @@
+<div>{{data | uppercase}}</div>
+<div>
+    <div class="view">{{value}}</div>
+    
+  <app-controller [numbers]='data'  (Number)='Number($event)' (Summing)='Summing($event)' (goback)='goback($event)' (delete)='delete($event)' (repeat)='repeat($event)'></app-controller>
+
+</div>
+<app-message (repeat)='repeat($event)'></app-message>
+
+<!-- ngOnChanges -->
+<!-- <app-view *ngFor='let name of names' [name]='name'></app-view> -->
+<!-- <app-view [major]="major" [minor]="minor"></app-view>
+<button (click)="newMinor()">New minor version</button>
+<button (click)="newMajor()">New major version</button> -->
+
+<h3>Countdown to Liftoff (via local variable)</h3>
+<button (click)="timer.start()" class="start" [ngClass]="{'isActive':Adactive}">Start</button>
+<button (click)="timer.stop()" class="stop">Stop</button>
+<div class="seconds" appHighlight>{{timer.seconds}}</div>
+<app-countdown #timer></app-countdown>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlight]="color" defaultColor='violet'>Highlight me!</p><!-- 第二种指令写法 -->
+<!-- 属性型指令 -->
+
+
+<!-- <div>
+    Pick your favorite hero
+    (<label><input type="checkbox" checked (change)="isActive = !isActive">show sad</label>)
+    {{isActive}}
+</div>
+<select>
+    <ng-container *ngFor="let h of names">
+  <ng-container  *ngIf="isActive || h !== 'sad'">
+      <option>{{h}} </option>
+  </ng-container>
+</ng-container>
+</select> -->
+
+<p *appUnless="condition">
+    (A) This paragraph is displayed because the condition is false.
+  </p>
+  
+  <p *appUnless="!condition">
+    (B) Although the condition is true,
+    this paragraph is displayed because appUnless is set to false.
+  </p>
+  <button (click)='condition=true'>true</button>
+  <button (click)='condition=false'>false</button>
+  {{condition}}
+  <!-- 结构型指令 -->
+<app-banner [ads]='ads'></app-banner>
+
+<input [(ngModel)]='name'>
+
+<app-input [names]='name' #AppInput></app-input>
+{{AppInput.test}}

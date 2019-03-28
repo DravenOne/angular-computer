@@ -1,0 +1,63 @@
+<div class="container" [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form #heroForm="ngForm" (ngSubmit)='onSubmit()'>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+         required minlength="3" appForbiddenName='bob'
+        [(ngModel)]='names' name="names"
+         #name='ngModel'>
+        <!-- <div class="alert alert-danger" [hidden]='name.valid || name.pristine'>
+          Name is required
+        </div> -->
+        <div *ngIf='name.invalid && (name.dirty || name.touched)'>
+              <div *ngIf='name.errors.required' class="alert alert-danger">
+                  Name is required.
+              </div>
+              <div *ngIf="name.errors.minlength" class="alert alert-danger">
+                  Name must be at least 3 characters long.
+                </div>
+                <div *ngIf="name.errors.forbiddenName" class="alert alert-danger">
+                  Name cannot be Bob.
+                </div>
+        </div>
+      </div>
+      {{names}}
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo"
+        [(ngModel)]='alterEgo' name="alterEgo">
+      </div>
+      {{alterEgo}}
+      <div class="form-group">
+          <label for="power">Hero Power</label>
+            <select class="form-control" id="power"
+              required
+              [(ngModel)]='power' name="power">
+                <option *ngFor='let pow of powers' [value]='pow'>{{pow}}</option>
+            </select>
+      </div>
+      {{power}}
+
+      <button type="submit" class="btn btn-success"  [disabled]="!heroForm.form.valid">Submit</button>
+    </form>
+</div>
+
+<!-- 结果 -->
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9  pull-left">{{names}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9 pull-left">{{alterEgo}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9 pull-left">{{power}}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>

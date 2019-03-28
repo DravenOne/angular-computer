@@ -1,0 +1,47 @@
+.controller{
+    width: 220px;
+    border:1px solid gray;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.numbers{
+    display: flex;
+    width: 100px;
+    flex-direction: row; 
+    flex-wrap:  wrap;
+    justify-content:  space-between;
+}
+.numbers>button{
+}
+.operator{
+    display: flex;
+    width: 100px;
+    flex-direction: row; 
+    flex-wrap:  wrap;
+    justify-content: space-around;
+}
+.controller button{
+    width: 30px;
+    height: 30px;
+    outline: none;
+    background: transparent;
+    border:1px solid rgb(222,222,222);
+    cursor: pointer;
+}
+.controller button:active{
+    background: wheat;
+}
+.operator>button{
+    width: 35px;
+    height: 35px;
+}
+.Result{
+    display: flex;
+    width: 100px;
+    justify-content: center;
+}
+.Result>button{
+    width:80px;
+}
